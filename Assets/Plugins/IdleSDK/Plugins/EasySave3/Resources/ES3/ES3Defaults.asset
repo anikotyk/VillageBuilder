@@ -29,49 +29,45 @@ MonoBehaviour:
     referenceMode: 2
     serializationDepthLimit: 64
     assemblyNames:
-    - MeshBakerCore
+    - NaughtyAttributes.Test
     - Zenject
-    - Assembly-CSharp
     - Assembly-CSharp-firstpass
+    - UniRx
     - EasySave3
     - CW.Common
     - Dreamteck.Utilities
-    - Dreamteck.Splines
-    - UniRx
-    - Tayx.Graphy
     - MoreMountains.NiceVibrations.Haptics
-    - Cinemachine
-    - HomaGames.HomaConsole
-    - NaughtyAttributes.Test
-    - Coffee.NanoMonitor
+    - Dreamteck.Splines
     - NaughtyAttributes.Core
-    - LeanTouch
-    - HomaGames.HomaConsole.Attributes
-    - Coffee.UIParticle.Demo
-    - MPUIKit
-    - MoreMountains.NiceVibrations
-    - LeanCommon
-    - NepixSignals.Runtime
-    - UniRx.Examples
+    - Tayx.Graphy
     - MK.Toon
     - Coffee.UIParticle
+    - NepixSignals.Runtime
+    - LeanTouch
+    - Coffee.NanoMonitor
+    - MPUIKit
+    - Coffee.UIParticle.Demo
+    - LeanCommon
+    - MoreMountains.NiceVibrations
+    - UniRx.Examples
     - Coffee.UIParticle.PerformanceDemo
     - Coffee.CFX_Demo_With_UIParticle
+    - Assembly-CSharp
+    - Cinemachine
+    - MeshBakerCore
     - Dreamteck.Splines.Editor
     - MK.Toon.Editor
     - NaughtyAttributes.Editor
-    - MeshBakerEditor
     - Tayx.Graphy.Editor
-    - PPv2URPConverters
+    - Coffee.UIParticle.Editor
     - Dreamteck.Utilities.Editor
     - MPUIKit.Editor
     - Zenject-TestFramework
     - MK.RampCreator
-    - HomaGames.HomaConsole.Editor
     - MoreMountains.NiceVibrations.Editor
-    - Coffee.UIParticle.Editor
     - MK.MKTextureChannelPacker
     - MK.MeshUtility
+    - MeshBakerEditor
     showAdvancedSettings: 1
   addMgrToSceneAutomatically: 0
   autoUpdateReferences: 1
