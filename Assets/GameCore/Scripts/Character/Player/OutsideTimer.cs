@@ -7,10 +7,11 @@ using IdleBasesSDK.Utilities;
 using UnityEngine.Events;
 using Zenject;
 
-public class OutsideTimer : IProgressible
+public class OutsideTimer : BubbleMoveListener, IProgressible
 {
     [SerializeField] private UpgradeValue _torchUpgrade;
     [SerializeField] private float _regenerationSpeed = 2;
+    [SerializeField] private WeaponController _weaponController;
     [SerializeField] private float _startRegenerationDelayTime;
 
     [Inject] private Timer _timer;
@@ -37,7 +38,7 @@ public class OutsideTimer : IProgressible
     
     public UnityAction<float> ProgressChanged { get; set; }
 
-    protected void InternalUpdate()
+    protected override void InternalUpdate()
     {
         if (_insideBubble)
         {
@@ -46,6 +47,7 @@ public class OutsideTimer : IProgressible
             if (newWastedTime < OutsideSafeTime && _disabled)
             {
                 _disabled = false;
+                _weaponController.Enable();
             }
         }
         else
@@ -55,16 +57,17 @@ public class OutsideTimer : IProgressible
             if (newWastedTime >= OutsideSafeTime && _disabled == false)
             {
                 _disabled = true;
+                _weaponController.Disable();
             }
         }
     }
 
-    protected void OnInsideBubble()
+    protected override void OnInsideBubble()
     {
         _startRegenerationDelay = _timer.ExecuteWithDelay(() => _insideBubble = true, _startRegenerationDelayTime);
     }
 
-    protected void OnOutsideBubble()
+    protected override void OnOutsideBubble()
     {
         _startRegenerationDelay?.Kill();
         _insideBubble = false;
