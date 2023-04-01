@@ -12,6 +12,8 @@ public class InstanceStack : StackBase
     private int _maxVisibleInstanceCount;
     [SerializeField] private bool _disableOnTake;
 
+    [Inject] private ResourceController _resourceController;
+    
     public int MaxVisibleInstanceCount => _visibleEqualsCapacity ? MaxSize : _maxVisibleInstanceCount;
 
     public List<StackItem> SourceItems { get; } = new List<StackItem>();
@@ -66,7 +68,7 @@ public class InstanceStack : StackBase
     {
         if (ItemsCount > MaxVisibleInstanceCount)
         {
-            stackItem = GameObject.FindObjectOfType<StackItem>();
+            stackItem = _resourceController.GetInstance(type);
             stackItem.transform.SetParent(transform);
             stackItem.transform.localPosition = Vector3.zero;
             return true;

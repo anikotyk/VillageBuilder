@@ -9,7 +9,7 @@ using IdleBasesSDK.Utilities;
 using UnityEngine.Events;
 using Zenject;
 
-public class BuyZone : StackTaker
+public class BuyZone : StackTaker, ITutorialEvent
 {
     [SerializeField] private List<CostData> _pricesData;
     [SerializeField] private BuyZoneSaver _zoneSaver;

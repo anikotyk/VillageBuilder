@@ -16,6 +16,8 @@ public class StackItemLocator : MonoBehaviour
     [SerializeField] private ItemType _storedItemType;
     [SerializeField] private Vector3 _itemGizmosSize;
 
+    [Inject] private ResourceController _resourceController;
+
     private void OnDrawGizmos()
     {
         for (int i = 0; i < 10; i++)
@@ -53,7 +55,9 @@ public class StackItemLocator : MonoBehaviour
 
     public Vector3 GetDeltaByIndex(int count, bool local = false)
     {
-       return GetDeltaByIndexAndSize(count, Vector3.zero, local);
+        
+        Vector3 size = _resourceController.GetPrefab(_storedItemType).StackSize.Size;
+       return GetDeltaByIndexAndSize(count, size, local);
     }
 
     private Vector3 GetDeltaByIndexAndSize(int count, Vector3 size, bool local = false)

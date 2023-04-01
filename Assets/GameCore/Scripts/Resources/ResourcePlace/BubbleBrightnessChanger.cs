@@ -15,6 +15,7 @@ public class BubbleBrightnessChanger : MonoBehaviour
     [SerializeField] private string _colorParameter;
     [SerializeField] private Gradient _gradient;
     [SerializeField] private float _maxDistance;
+    [SerializeField] private DamageFx _damageFx;
 
     [Inject] private Bubble _bubble;
 
@@ -81,19 +82,19 @@ public class BubbleBrightnessChanger : MonoBehaviour
     
     private void ActualizeScaleModels()
     {
-        //Actualize(OnScaleModels, _bubble.GetSquaredDistanceToBubble(transform.position));
+        Actualize(OnScaleModels, _bubble.GetSquaredDistanceToBubble(transform.position));
     }
     
     private void ActualizeEndScaleModels()
     {
-        //Actualize(OnScaleEndModels, _bubble.GetSquaredDistanceToBubble(transform.position));
+        Actualize(OnScaleEndModels, _bubble.GetSquaredDistanceToBubble(transform.position));
     }
     
     private void Actualize(List<MultiMaterialModel> models, float sqrDistance)
     {
         var brightnessCoefficient = sqrDistance / (_maxDistance * _maxDistance);
         var colorModifier = new ColorModifier(_colorParameter, _gradient.Evaluate(brightnessCoefficient));
-       
+        _damageFx.ApplyModifier(colorModifier);
         foreach (var multiMaterialModel in models)
         {
             if(multiMaterialModel.gameObject.activeInHierarchy == false)

@@ -8,7 +8,7 @@ using IdleBasesSDK.Utilities;
 using UnityEngine.Events;
 using Zenject;
 
-public class Resource : StackItem
+public class Resource : StackItem, ISellable
 {
     [SerializeField] private Sprite _icon;
     [SerializeField] private bool _isSellable;

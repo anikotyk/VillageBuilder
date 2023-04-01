@@ -10,6 +10,8 @@ public class BubbleMaterialSwapper : BubbleIncreaseListener
     [SerializeField] private List<Renderer> _renderers;
     [SerializeField] private bool _destructible;
     
+    [SerializeField, ShowIf(nameof(_destructible))] 
+    private DestructibleModel _destructibleModel;
 
     private bool _insideMaterial = false;
 

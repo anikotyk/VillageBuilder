@@ -7,9 +7,9 @@ using IdleBasesSDK.Stack;
 using UnityEngine.Events;
 using Zenject;
 
-public class ResourcePlace : MonoBehaviour
+public class ResourcePlace : Destructible, ITask
 {
-    [SerializeField] private InteractableCharacterZone _actionZone;
+    [SerializeField] private EquippedCharacterZone _actionZone;
     [SerializeField] private GameObject _checkActiveObject;
     [SerializeField] private ItemType _placeType;
     [SerializeField] private int _capacity;
@@ -23,20 +23,28 @@ public class ResourcePlace : MonoBehaviour
 
     public ItemType Type => _placeType;
 
-    
-
-    private void OnInteract()
+    private void OnEnable()
     {
-        UseCondition();
+        _actionZone.OnInteractInternal += OnInteract;
+    }
+
+    private void OnDisable()
+    {
+        _actionZone.OnInteractInternal -= OnInteract;
+    }
+
+    private void OnInteract(EquippedCharacter equippedCharacter)
+    {
+        Use(equippedCharacter);
     }
 
 
-    protected bool UseCondition()
+    protected override bool UseCondition(Weapon weapon)
     {
         return _actionZone.IsCharacterInside;
     }
 
-    protected void OnHealthChanged(int health)
+    protected override void OnHealthChanged(int health)
     {
         if (health <= 0)
         {

@@ -20,11 +20,20 @@ public class ResourcePlaceGenerator : MonoBehaviour
     
     public UnityAction<StackItem> Spawned { get; set; }
     
+    private void OnEnable()
+    {
+        _resourcePlace.Damaged += OnDamaged;
+    }
     
+    private void OnDisable()
+    {
+        _resourcePlace.Damaged -= OnDamaged;
+    }
+
     private void OnDamaged(int damage)
     {
         
-        int collectedAmount = (int)(damage * (_resourcePlace.Capacity / (float)(100)));
+        int collectedAmount = (int)(damage * (_resourcePlace.Capacity / (float)(_resourcePlace.MaxHealth)));
         if (collectedAmount <= 0)
             collectedAmount = 1;
         if (_collected + collectedAmount > _resourcePlace.Capacity)

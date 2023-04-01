@@ -11,6 +11,7 @@ using Zenject;
 public class Bubble : MonoBehaviour
 {
     [SerializeField] private float _startSize;
+    [SerializeField] private SphereSize _size;
     [SerializeField] private float _zoomTime;
     [SerializeField] private float _zoomDelay;
     [SerializeField] private Ease _zoomEase;
@@ -84,9 +85,25 @@ public class Bubble : MonoBehaviour
 
     public bool IsLocateInside(Vector3 position)
     {
-        return true;
+        return IsLocateInside(position, _additionalScale);
     }
     
+    public bool IsLocateInside(Vector3 position, float bubbleCoefficient)
+    {
+        return GetSquaredDistanceFromCenter(position) <= Mathf.Pow(_size.RawRadius * bubbleCoefficient, 2);
+    }
+
+    public float GetSquaredDistanceToBubble(Vector3 position)
+    {
+        return GetSquaredDistanceFromCenter(position) - Mathf.Pow(_size.RawRadius * _additionalScale, 2);
+    }
+    
+    private float GetSquaredDistanceFromCenter(Vector3 position)
+    {
+        float x = Mathf.Pow(position.x - _size.Center.x, 2);
+        float z = Mathf.Pow(position.z - _size.Center.z, 2);
+        return x + z;
+    }
 
     [Button("Increase")]
     private void Increase()
