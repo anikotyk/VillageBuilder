@@ -304,7 +304,7 @@ Material:
     m_Colors:
     - _AlbedoColor: {r: 0.8862745, g: 0.4886201, b: 0.30221957, a: 1}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 0.8862745, g: 0.4886201, b: 0.30221957, a: 1}
+    - _Color: {r: 0.8862745, g: 0.48862004, b: 0.30221954, a: 1}
     - _DetailColor: {r: 0.929, g: 0.7807655, b: 0.64565504, a: 1}
     - _DissolveBorderColor: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

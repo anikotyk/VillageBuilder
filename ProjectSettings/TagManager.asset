@@ -3,14 +3,34 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Stair
+  - Climb
+  - Fly
+  - Animal
+  - Water
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Bubble
   - Water
   - UI
+  - Test
+  - InsideBubble
+  - OutsideBubble
+  - Player
+  - Enemy
+  - Colliders
+  - Resources
+  - Helper
+  - HerlperZones
+  - 
+  - 
+  - 
+  - 
+  - 
+  - Animal
   - 
   - 
   - 
@@ -20,22 +40,7 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Item
   - 
   m_SortingLayers:
   - name: Default

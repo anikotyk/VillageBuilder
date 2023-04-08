@@ -305,7 +305,7 @@ Material:
     m_Colors:
     - _AlbedoColor: {r: 0.41389284, g: 0.51951003, b: 0.6698113, a: 1}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 0.41389284, g: 0.51951003, b: 0.6698113, a: 1}
+    - _Color: {r: 0.4138928, g: 0.51951003, b: 0.6698113, a: 1}
     - _Color0: {r: 1, g: 0, b: 0, a: 1}
     - _Color1: {r: 0, g: 1, b: 0, a: 1}
     - _DetailColor: {r: 1, g: 1, b: 1, a: 1}
